@@ -1,0 +1,173 @@
+/*
+ * Main HTML
+ */
+body {
+    min-height: 97vh;
+    color: #fafafa;
+    background-color: #080808;
+    background-image: linear-gradient(145deg, #121212 25%, #161616 100%);
+}
+
+
+nav {
+    text-align: center;
+    padding: 10px;
+}
+
+
+nav ul {
+    font-size: 15px;
+}
+
+
+nav ul li {
+    padding: 0px;
+    margin: 0px;
+    height: 10px;
+    display: inline;
+}
+
+
+nav li:before {
+    content: '\2022';
+    margin: 0 1em;
+    /* any design */
+}
+
+
+nav li:after {
+    /*content: '\2022';*/
+    margin: 0 1em;
+    /* any design */
+}
+
+
+main {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1.6em;
+    margin: 0px auto;
+    width: fit-content;
+}
+
+
+footer {
+    text-align: right;
+}
+
+
+a {
+    color: #0281f8;
+}
+
+
+h2 {
+    width: fit-content;
+    display: inline-block;
+    margin: 0;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to right, transparent, #0281f8, transparent);
+    border-image-slice: 1;
+}
+
+
+h5 {
+    margin: 5px;
+}
+
+
+h6 {
+    margin: 5px;
+}
+
+
+/*
+ * Decorations
+ */
+
+
+hr {
+    border: 0;
+    height: 2px;
+}
+
+
+.blue-hr {
+    background-image: linear-gradient(to right, transparent, #0281f8, transparent);
+}
+
+
+.orange-hr {
+    background-image: linear-gradient(to right, transparent, #f88102, transparent);
+}
+
+
+.vertical-hr {
+    width: 2px;
+    background-image: linear-gradient(to bottom, transparent, #f88102, transparent);
+}
+
+
+.green-hr {
+    background-image: linear-gradient(to right, transparent, #2e7a02, transparent);
+}
+
+
+/*
+ * Columns
+ */
+
+
+.left-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    width: 400px;
+    align-items: flex-end;
+    text-align: right;
+}
+
+
+.left-sidebar ul {
+    display: block;
+    list-style: none;
+    position: relative;
+    right: 12px;
+}
+
+
+/*
+.left-sidebar li::after {
+    content: "•";
+    display: inline-block;
+    position: absolute;
+    right: -12px;
+}
+*/
+
+
+.left-sidebar h2 {
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to left, #2e7a02, transparent);
+    border-image-slice: 1;
+}
+
+
+.center-bar h2 {
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to right, #0281f8, transparent);
+    border-image-slice: 1;
+}
+
+
+.center-bar {
+    float: left;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    width: 570px;
+    align-items: flex-start;
+    text-align: left;
+}
