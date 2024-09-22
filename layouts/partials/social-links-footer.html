@@ -1,0 +1,18 @@
+<div class="social-links-footer">
+  {{ range .Site.Data.links.meta}}
+  <a href="{{.url}}"><div class="social-link">{{.display}}</div></a>
+  {{end}}
+  {{ range .Site.Data.links.socials}}
+  <a href="{{.url}}"><div class="social-link">{{.display}}</div></a>
+  {{end}}
+  <div class="social-link">
+  {{ with .OutputFormats.Get "rss" -}}
+    <a href="{{ .RelPermalink }}">RSS</a>
+  {{ end }}
+</div>
+  
+  {{ $currentPage := . }}
+  {{ range .Site.Menus.sidebar }}
+  <a class="nav-item{{if or ($currentPage.IsMenuCurrent "sidebar" .) ($currentPage.HasMenuCurrent "sidebar" .) }} active{{end}}" href="{{.URL}}"><div class="nav-item-title">{{ .Name }}</div></a>
+  {{ end }}
+</div>

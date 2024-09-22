@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+
+{{ partial "head.html" . }}
+
+<body>
+{{ template "partials/kofi.html" . }}
+{{ template "partials/buymeacoffee.html" . }}
+
+<div class="main">
+<header>
+
+<div class="header-bar">
+  <div class="siteTitle">
+    <a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+  </div> <!--siteTitle-->
+  <nav>
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.main }}
+    <a class="nav-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{.URL}}"><div class="nav-item-title">{{ .Name }}</div></a>
+    {{ end }}
+  </nav>
+  <nav>
+    {{ $currentPage := . }}
+    {{ range .Site.Menus.bottom }}
+    <a class="nav-item{{if or ($currentPage.IsMenuCurrent "bottom" .) ($currentPage.HasMenuCurrent "bottom" .) }} active{{end}}" href="{{.URL}}"><div class="nav-item-title">{{ .Name }}</div></a>
+    {{ end }}
+  </nav>
+
+  {{ partial "social-links.html" . }}
+
+</div>
+
+
+</header>
