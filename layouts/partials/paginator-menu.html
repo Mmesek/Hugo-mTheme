@@ -5,7 +5,7 @@
     {{ end }}
   </div> <!-- page-prev -->
 
-  {{ if ne .Paginator.TotalPages 1 }}
+  {{ if gt .Paginator.TotalPages 1 }}
   <div class="page-num">
     {{ .Paginator.PageNumber }}/{{ .Paginator.TotalPages }}
   </div> <!-- page-num -->
