@@ -3,7 +3,7 @@
 <script>
   kofiWidgetOverlay.draw('{{.Site.Params.kofi}}', {
     'type': 'floating-chat',
-    'floating-chat.donateButton.text': '{{.Site.Params.kofiMessage | default "Support Me"}}',
+    'floating-chat.donateButton.text': '{{.Site.Params.kofiMessage | default ""}}',
     'floating-chat.donateButton.background-color': '#00b9fe',
     'floating-chat.donateButton.text-color': '#fff'
   });
