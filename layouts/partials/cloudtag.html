@@ -1,0 +1,16 @@
+{{ $smallestSize := 0.75}}
+{{ $biggestSize := 1.5}}
+{{ $max := add (len (index .Site.Taxonomies.tags.ByCount 0).Pages) 1 }}
+{{ $min := len (index .Site.Taxonomies.tags.ByCount.Reverse 0).Pages }}
+{{ $spread := sub $max $min }}
+{{ $fontStep := div $smallestSize $spread}}
+
+{{ range $key, $value := .Data.Terms.Alphabetical }}
+    {{ $tagCount := $value.WeightedPages.Count }}
+    {{ $size := add $smallestSize (mul (sub $tagCount $min) $fontStep) }}
+    {{ $weight := div (sub (math.Log $tagCount) (math.Log $min)) (sub (math.Log $max) (math.Log $min)) }}
+    {{ $size := add $smallestSize (mul (sub $biggestSize 1) $weight) }}
+    <a href="{{ $value.Name | urlize }}">
+        <div class="term-title" style="font-size: {{ $size }}rem;">{{ $value.Name }} <sup>{{ $value.WeightedPages.Count }}</sup></div> 
+    </a>
+{{ end }}

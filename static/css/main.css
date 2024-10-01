@@ -62,3 +62,11 @@ hr {
     justify-content: center;
   }
 }
+
+.terms {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    list-style: none;
+}

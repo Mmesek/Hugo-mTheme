@@ -1,0 +1,11 @@
+{{ partial "header.html" . }}
+
+<h2 class="term-list-title">
+    <a href="{{ .Permalink }}" class="linktopost">{{ .Title }} <sup>{{ add (len .Site.Taxonomies.tags) 1 }}</sup></a>
+</h2>
+
+<ul class="terms">
+{{ partial "cloudtag.html" . }}
+</ul> <!-- terms -->
+
+{{ partial "footer.html" . }}
