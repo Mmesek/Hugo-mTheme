@@ -1,3 +1,4 @@
+{{ if .Data.Terms }}
 {{ $smallestSize := 0.75}}
 {{ $biggestSize := 1.5}}
 {{ $max := add (len (index .Site.Taxonomies.tags.ByCount 0).Pages) 1 }}
@@ -13,4 +14,5 @@
     <a href="{{ $value.Name | urlize }}">
         <div class="term-title" style="font-size: {{ $size }}rem;">{{ $value.Name }} <sup>{{ $value.WeightedPages.Count }}</sup></div> 
     </a>
+{{ end }}
 {{ end }}
