@@ -1,13 +1,14 @@
 <div class="social-links-footer">
-  {{ range .Site.Data.links.meta}}
-  <a href="{{.url}}"><div class="social-link">{{.display}}</div></a>
+  {{range .Site.Data.links.meta}}
+  {{ partial "social-link" . }}
   {{end}}
-  {{ range .Site.Data.links.socials}}
-  <a href="{{.url}}"><div class="social-link">{{.display}}</div></a>
+  {{range .Site.Data.links.socials}}
+  {{ partial "social-link" . }}
   {{end}}
   <div class="social-link">
   {{ with .OutputFormats.Get "rss" -}}
-    <a href="{{ .RelPermalink }}">RSS</a>
+  {{ $ctx := dict "vendor" "simple-icons" "name" "rss"}}
+    <a href="{{ .RelPermalink }}">{{ partial "icons/icon" $ctx }} RSS</a>
   {{ end }}
 </div>
   

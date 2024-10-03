@@ -1,14 +1,14 @@
 <hr class="blue-hr">
 
 <div class="social-links-header">
-  {{ range .Site.Data.links.meta}}
-  <a href="{{.url}}"><div class="social-link">{{.display}}</div></a>
+  {{range .Site.Data.links.meta}}
+  {{ partial "icon-link" . }}
   {{end}}
 </div>
 <hr class="orange-hr">
 <div class="social-links-header">
   {{ range .Site.Data.links.socials}}
-  <a href="{{.url}}"><div class="social-link">{{.display}}</div></a>
+  {{ partial "icon-link" . }}
   {{end}}
 </div>
 <hr class="green-hr">
