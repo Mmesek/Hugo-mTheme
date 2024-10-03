@@ -1,0 +1,4 @@
+{{ $anchor := default "Smart" .Params.featured_image_crop_anchor}}
+{{ with .Resources.GetMatch .Params.featured_image }}
+  <img src="{{ (.Fill (printf "1100x400 q100 %s" $anchor)).RelPermalink }}">
+{{ end }}
