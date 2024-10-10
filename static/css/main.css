@@ -1,4 +1,7 @@
 :root {
+    --primary: #0281f8;
+    --secondary: #f88102;
+    --tiertiary: #2e7a02;
     --main-bg-color: #080808;
     --secondary-bg-color: #202020;
     --main-text: #ffffff;
@@ -36,23 +39,23 @@ hr {
 
 
 .blue-hr {
-    background-image: linear-gradient(to right, transparent, #0281f8, transparent);
+    background-image: linear-gradient(to right, transparent, var(--primary), transparent);
 }
 
 
 .orange-hr {
-    background-image: linear-gradient(to right, transparent, #f88102, transparent);
+    background-image: linear-gradient(to right, transparent, var(--secondary), transparent);
 }
 
 
 .vertical-hr {
     width: 2px;
-    background-image: linear-gradient(to bottom, transparent, #f88102, transparent);
+    background-image: linear-gradient(to bottom, transparent, var(--secondary), transparent);
 }
 
 
 .green-hr {
-    background-image: linear-gradient(to right, transparent, #2e7a02, transparent);
+    background-image: linear-gradient(to right, transparent, var(--tiertiary), transparent);
 }
 
 @media only screen and (min-width: 400px) {
