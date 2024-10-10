@@ -10,6 +10,7 @@
     --copyright: #808080; /* copyright text color */
     --border-color: #000000;
 }
+
 body {
     min-height: 97vh; /*Unnecessary?*/
     color: var(--main-text);
@@ -22,7 +23,6 @@ body {
 }
 
 nav {
-    -webkit-justify-content: flex-end;
     justify-content: flex-end;
 }
   
@@ -61,7 +61,6 @@ hr {
 @media only screen and (min-width: 400px) {
 
 .social-links-header {
-    -webkit-justify-content: center;
     justify-content: center;
   }
 }
