@@ -1,0 +1,56 @@
+{{- $u := urls.Parse .Destination -}}
+{{- $img := "" -}}
+{{- $anchor := "" -}}
+{{- $width := "800" -}}
+{{- $height := "" -}}
+{{- $url := "" -}}
+{{- $exif := false -}}
+
+{{- if $u.IsAbs -}}
+    {{- with resources.GetRemote $u.String -}}
+        {{- $img = . -}}
+    {{- end -}}
+{{- else -}}
+    {{- with .Page.Resources.GetMatch $u.Path -}}
+        {{- $img = . -}}
+    {{- end -}}
+{{- end -}}
+
+{{- if eq $img.MediaType.SubType "jpeg" -}}
+    {{ $exif = true}}
+    {{- $matches := findRESubmatch `\|(|TopLeft|Top|TopRight|Left|Center|Right|BottomLeft|Bottom|BottomRight|Smart)?\|?(\d+)?x?(\d+)?\|?` .PlainText -}}
+    {{- range $matches -}}
+        {{- $anchor = index . 1 -}}
+        {{- $width = (default $width (index . 2)) -}}
+        {{- $height = index . 3 -}}
+    {{- end -}}
+    {{- with $img -}}
+        {{- $newHeight := (div (mul $img.Height (int $width)) $img.Width) -}}
+        {{- $args := (printf "%dx%d %s" (int $width) (int (default $newHeight $height)) $anchor) -}}
+        {{- $img = ($img.Fill $args) -}}
+        {{- $url = $img.RelPermalink }}
+        {{- end -}}
+{{- end -}}
+<div class="flexible">
+    <figure>
+        <a href="{{ $u }}"
+        {{- with .Title }} title="{{ . }}"{{ end -}}
+        target="_blank" rel="noopener noreferrer"
+        >
+            <img src="{{ $img.RelPermalink }}"
+            {{- with .Text }} alt="{{ . }}"{{ end -}}
+            {{- with .Title }} title="{{ . }}"{{ end -}}
+            >
+        </a>
+        {{- with .Title }}<figcaption>{{ . }}</figcaption>{{ end -}}
+        {{- if $exif -}}
+        {{- with $img.Exif -}}
+        <figcaption>
+            {{- with .Date }}🕙{{ .Format "02 January 2006 15:04 MST" }}{{ end }}{{ with .Tags.OffsetTime }}{{ . }}{{ end -}}
+            {{- partial "coordinates.html" . -}}
+            {{- with .Tags.Make }}📷{{ . }}{{ end }} {{ with .Tags.Model }}{{ . }}{{ end -}}
+        </figcaption>
+        {{- end -}}
+        {{- end -}}
+    </figure>
+</div>

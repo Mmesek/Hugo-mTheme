@@ -70,3 +70,10 @@ hr {
     margin: auto;
     list-style: none;
 }
+
+
+.flexible {
+    display: flex;
+    justify-content: center;
+}
+
