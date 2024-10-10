@@ -1,3 +1,3 @@
 {{ $vendor := default "simple-icons" .icon_vendor}}
 {{ $ctx := dict "vendor" $vendor "name" .icon}}
-<a href="{{.url}}"><div class="social-link">{{if .icon}}{{ partial "icons/icon" $ctx }}{{end}} {{.name}}</div></a>
+<a href="{{.url}}"{{ if (default true .relme) }} rel="me"{{ end }}><div class="social-link">{{if .icon}}{{ partial "icons/icon" $ctx }}{{end}} {{.name}}</div></a>
