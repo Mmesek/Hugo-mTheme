@@ -1,0 +1,20 @@
+{{ $latitude := .Lat }}
+{{ $longitude := .Long }}
+
+{{ if or $latitude $longitude }}
+    {{ $latDeg := int $latitude }}
+    {{ $latMin := int (mul (sub $latitude $latDeg) 60) }}
+    {{ $latSec := mul (sub (mul (sub $latitude $latDeg) 60) $latMin) 60 }}
+
+    {{ $longDeg := int $longitude }}
+    {{ $longMin := int (mul (sub $longitude $longDeg) 60) }}
+    {{ $longSec := mul (sub (mul (sub $longitude $longDeg) 60) $longMin) 60 }}
+
+    {{ $latDirection := cond (gt $latitude 0) "N" "S" }}
+    {{ $longDirection := cond (gt $longitude 0) "E" "W" }}
+    {{ $ctx := dict "vendor" "simple-icons" "name" "googlemaps"}}
+
+<a href="https://www.google.com/maps/place/{{$latitude}},{{$longitude}}" target="_blank" rel="noopener noreferrer">
+    {{ partial "icons/icon" $ctx }} {{ printf "%d°%d'%.1f\"%s %d°%d'%.1f\"%s" ($latDeg) $latMin $latSec $latDirection ($longDeg) $longMin $longSec $longDirection }}
+</a>
+{{end}}
