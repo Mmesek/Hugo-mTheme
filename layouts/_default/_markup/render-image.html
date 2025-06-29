@@ -15,10 +15,10 @@
         {{- $img = . -}}
     {{- end -}}
 {{- end -}}
-
+{{- if $img -}}
 {{- if eq $img.MediaType.SubType "jpeg" -}}
     {{ $exif = true}}
-    {{- $matches := findRESubmatch `\|(|TopLeft|Top|TopRight|Left|Center|Right|BottomLeft|Bottom|BottomRight|Smart)?\|?(\d+)?x?(\d+)?\|?` .PlainText -}}
+    {{- $matches := findRESubmatch `\|(TopLeft|Top|TopRight|Left|Center|Right|BottomLeft|Bottom|BottomRight|Smart)?\|?(\d+)?x?(\d+)?\|?` .PlainText -}}
     {{- range $matches -}}
         {{- $anchor = index . 1 -}}
         {{- $width = (default $width (index . 2)) -}}
@@ -54,3 +54,6 @@
         {{- end -}}
     </figure>
 </div>
+{{- else -}}
+<div><p>IMAGE ERRORED OUT. Make sure You are using pagebundle!</p></div>
+{{- end -}}
