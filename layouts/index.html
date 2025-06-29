@@ -1,7 +1,7 @@
 {{ partial "header.html" . }}
 
 <main>
-{{ if .Site.Parms.webmention }}
+{{ if .Site.Params.webmention }}
 <link rel="webmention" href="https://webmention.io/{{ .Site.Params.webmention }}/webmention" />
 {{ end }}
 {{ $paginator := .Paginate (where site.RegularPages "Type" "in" site.Params.mainSections) }}
