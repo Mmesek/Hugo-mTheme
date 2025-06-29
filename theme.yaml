@@ -1,0 +1,23 @@
+name: "mTheme"
+license: "MIT"
+licenselink: "https://github.com/Mmesek/Hugo-mTheme/blob/master/LICENSE.md"
+description: "A minimalistic theme."
+
+homepage: "https://github.com/Mmesek/Hugo-mTheme"
+demosite: 'https://mmesek.github.io/mTheme'
+
+tags:
+  - blog
+  - personal
+
+features:
+min_version: "0.133.0"
+
+author:
+  name: "Mmesek"
+  homepage: "https://github.com/Mmesek"
+
+original:
+  author: gyorb
+  homepage: https://github.com/gyorb/hugo-dusk
+  repo: https://github.com/gyorb/hugo-dusk
