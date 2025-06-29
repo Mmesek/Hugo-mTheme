@@ -1,0 +1,23 @@
+{{- $u := .Get "image" -}}
+{{- $img := .Page.Resources.GetMatch $u -}}
+{{- $text := .Get "text" -}}
+{{- $title := .Get "title" -}}
+{{- $anchor := .Get "anchor" -}}
+{{- $width := default (string $img.Width) (.Get "width") -}}
+{{- $height := default (string $img.Height) (.Get "height") -}}
+{{- $args := (printf "%sx%s %s" $width $height $anchor) -}}
+{{ $img = ($img.Fill $args).RelPermalink}}
+<div class="flexible">
+    <figure>
+        <a href="{{ $u }}"
+        {{- with $text }} title="{{ . }}"{{ end -}}
+        target="_blank" rel="noopener noreferrer"
+        >
+        <img src="{{ $img }}"
+        {{- with $text }} alt="{{ . }}"{{ end -}}
+        {{- with $text }} title="{{ . }}"{{ end -}}
+        >
+    </a>
+    {{- with $title }}<figcaption>{{ . }}</figcaption>{{ end -}}
+</figure>
+</div>
