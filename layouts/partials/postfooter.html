@@ -1,0 +1,33 @@
+<footer class="post-footer">
+  {{if .Params.prev}}
+  <a href="/{{.Params.prev | urlize}}" title="Previous Post">< Previous</a>
+  {{end}}
+  {{if .Params.next}}
+  <a id="post-next" href="/{{.Params.next | urlize}}" title="Next Post">Next ></a>
+  {{end}}
+
+  <div class="post-footer-data">
+            {{ partial "tags.html" . }}
+    {{if or .Params.categories .Params.series}}
+    <hr>
+            {{ partial "categories.html" . }}
+            {{ partial "series.html" . }}
+    {{end}}
+    <div class="date"> Published: <time datetime="{{ .Date.Format "Mon Jan 02 15:04:05 2006 -0700"}}">{{ .Date.Format "2006-01-02" }}</time></div>
+    {{if ne .Lastmod .Date}}
+    <div class="date"> Updated: <time datetime="{{ .Lastmod.Format "Mon Jan 02 15:04:05 2006 -0700"}}">{{ .Page.Lastmod.Format "2006-01-02"}}</time></div>
+    {{end}}
+  </div>
+</footer>
+
+{{ if in site.Params.mainSections .Type}}
+  {{ if ne .Params.comments "disable" }}
+    {{ if eq .Params.comment_system "disqus" }}
+      {{ template "_internal/disqus.html" . }}
+    {{ else if eq .Params.comment_system "utterances" }}
+      {{ template "partials/scripts/utterances.html" . }}
+    {{ else }}
+      {{ template "partials/scripts/cusdis.html" . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
