@@ -25,7 +25,13 @@ body {
 nav {
     justify-content: flex-end;
 }
-  
+
+#TableOfContents {
+    flex-flow: column;
+    list-style-position: inside;
+    text-align: initial;
+}
+
 
 #post-next {
     float: right;
@@ -73,9 +79,47 @@ hr {
     list-style: none;
 }
 
+.term {
+    display: flex;
+    align-items: center;
+    
+}
+
+.tag {
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 16px;
+    background-color: #414141;
+    margin-top: 3px;
+}
+
+article h1,
+article h2,
+article h3,
+article h4,
+article h5 {
+    text-align: center;
+}
 
 .flexible {
     display: flex;
     justify-content: center;
 }
 
+figure {
+    transition: all .20s linear;
+    background-color: var(--code-quote-bg);
+    margin: 0;
+}
+
+img {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+figure figcaption {
+    text-align: center;
+}

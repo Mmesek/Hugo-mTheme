@@ -1,0 +1,11 @@
+<div class="categories">
+  {{if .Params.categories}}
+  Published in:
+    {{ $len := (len .Params.categories) }}
+    {{ range $index, $element := .Params.categories }}
+      <div class="category">
+        <a href="/categories/{{ $element | urlize }}">{{$element}}</a>{{if ne (add $index 1) $len}},{{end}}
+      </div>
+    {{ end }}
+  {{ end }}
+</div>
