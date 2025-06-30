@@ -1,8 +1,12 @@
 {{ $anchor := default "Smart" .Params.featured_image_crop_anchor}}
+{{ $alt := default .Params.Title .Params.featured_image_description}}
 {{ with .Resources.GetMatch .Params.featured_image }}
   <img 
   src="{{ replace (.Fill (printf "1100x400 q100 %s webp" $anchor)).RelPermalink ".jpg" ".webp" }}"
   decoding="async"
   loading="lazy"
+  height="400"
+  width="1100"
+  alt="{{ $alt }}"
   >
 {{ end }}
