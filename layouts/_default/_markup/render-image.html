@@ -37,9 +37,19 @@
         {{- with .Title }} title="{{ . }}"{{ end -}}
         target="_blank" rel="noopener noreferrer"
         >
-            <img src="{{ $img.RelPermalink }}"
+            {{- $imgPath := $img.RelPermalink -}}
+                {{- if ne $img.MediaType.SubType "svg" -}}
+                {{- $img = $img.Process "webp" -}}
+                {{- $imgPath = replace $img.RelPermalink ".jpg" ".webp" -}}
+                {{- $imgPath = replace $img.RelPermalink ".png" ".webp" -}}
+            {{- end -}}
+            <img src="{{ $imgPath }}"
             {{- with .Text }} alt="{{ . }}"{{ end -}}
             {{- with .Title }} title="{{ . }}"{{ end -}}
+            decoding="async"
+            loading="lazy"
+            width="{{ $width }}"
+            height="{{ $height }}"
             >
         </a>
         {{- with .Title }}<figcaption>{{ . }}</figcaption>{{ end -}}
