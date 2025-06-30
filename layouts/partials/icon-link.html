@@ -1,5 +1,5 @@
 {{ if (default true .show) }}
     {{ $vendor := default "simple-icons" .icon_vendor }}
     {{ $ctx := dict "vendor" $vendor "name" .icon }}
-    <a href="{{.url}}"{{ if (default true .relme) }} rel="me"{{ end }}><div class="social-link">{{ if .icon }}{{ partial "icons/icon" $ctx }}{{ else }}{{ .name }}{{ end }}</div></a>
+    <a href="{{.url}}"{{ if (default true .relme) }} rel="me"{{ end }} aria-label="{{.name}}"><div class="social-link">{{ if .icon }}{{ partial "icons/icon" $ctx }}{{ else }}{{ .name }}{{ end }}</div></a>
 {{ end }}

@@ -8,12 +8,12 @@
   <div class="social-link">
   {{ with .OutputFormats.Get "rss" -}}
   {{ $ctx := dict "vendor" "simple-icons" "name" "rss"}}
-    <a href="{{ .RelPermalink }}">{{ partial "icons/icon" $ctx }} RSS</a>
+    <a href="{{ .RelPermalink }}" aria-label="RSS Feed">{{ partial "icons/icon" $ctx }} RSS</a>
   {{ end }}
 </div>
   
   {{ $currentPage := . }}
   {{ range .Site.Menus.sidebar }}
-  <a class="nav-item{{if or ($currentPage.IsMenuCurrent "sidebar" .) ($currentPage.HasMenuCurrent "sidebar" .) }} active{{end}}" href="{{.URL}}"><div class="nav-item-title">{{ .Name }}</div></a>
+  <a class="nav-item{{if or ($currentPage.IsMenuCurrent "sidebar" .) ($currentPage.HasMenuCurrent "sidebar" .) }} active{{end}}" href="{{.URL}}" aria-label="{{ .Name }}}}"><div class="nav-item-title">{{ .Name }}</div></a>
   {{ end }}
 </div>
