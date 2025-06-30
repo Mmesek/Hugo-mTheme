@@ -2,8 +2,8 @@
 
   {{ partial "social-links-footer.html" . }}
 
-  <div class="copyright"> {{ (.Site.Copyright | default ( print "Copyright © " now.Year )) | safeHTML }} </div>
-  <div class="copyright"> Page Build: {{ now | time.Format ":date_long" }}</div>
+  <div class="copyright"> {{ (.Site.Copyright | default ( print ( i18n "default_copyright" ) " © " now.Year )) | safeHTML }} </div>
+  <div class="copyright"> {{ i18n "page_build" }}: {{ now | time.Format ":date_long" }}</div>
 
   </footer>
 

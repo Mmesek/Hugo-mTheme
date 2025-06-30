@@ -1,9 +1,9 @@
 <div class="series">
   {{if .Params.series}}
-  Part of the series:
+  {{ i18n "series" }}:
     {{ range .Params.series }}
       <div class="series-name">
-        <a href="/series/{{ . | urlize }}">{{.}}</a>
+        <a href="/series/{{ . | urlize }}" aria-label="{{.}}">{{.}}</a>
       </div>
     {{ end }}
   {{ end }}

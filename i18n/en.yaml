@@ -1,0 +1,35 @@
+taxonomies:
+  category: "categories"
+  group: "groups"
+  series: "series"
+  tag: "tags"
+
+date_format: 2 Jan, 2006
+
+read_more: Continue reading
+published_in: Published in
+page_build: Page Build
+previous: Previous
+next: Next
+published: Published
+updated: Updated
+series: Part of the series
+page_not_found: Oooh, exploring, aren't we?
+error_404: You've found... Error 404!
+default_copyright: Copyright
+
+minutes:
+  one: minute
+  other: minutes
+hours:
+  one: hour
+  other: hours
+days:
+  one: day
+  other: days
+months:
+  one: month
+  other: months
+years:
+  one: year
+  other: years
